@@ -164,7 +164,7 @@ spec:
                     --config {{ $name }}={{ $value }} \
                     {{- end }}
                     --command-config ${CLIENT_CONF} \
-                    --topic {{ $topic.name }}"
+                    --topic {{ tpl $topic.name $ }}"
               {{- end }}
               {{- range $command := .Values.provisioning.extraProvisioningCommands }}
                 {{- $command | quote | nindent 16 }}
